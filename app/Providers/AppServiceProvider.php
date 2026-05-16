@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,10 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $year = Year::where('active', 1)->first();
-        $setting = Setting::first();
-        // $semester = Semester::where('active', 1)->first();
-        // View::share(['current_year' => $year, 'setting' => $setting, 'current_semester' => $semester]);
-        View::share(['setting' => $setting]);
+        View::composer('*', function ($view) {
+            $setting = Cache::remember('settings', 3600, function () {
+                return \App\Models\Setting::first();
+            });
+
+            $view->with('setting', $setting);
+        });
     }
 }
