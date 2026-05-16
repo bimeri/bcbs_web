@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 
+$mysqlSslCa = defined('Pdo\\Mysql::ATTR_SSL_CA')
+    ? constant('Pdo\\Mysql::ATTR_SSL_CA') : PDO::MYSQL_ATTR_SSL_CA;
+
 return [
 
     /*
@@ -122,10 +125,7 @@ return [
         'client' => env('REDIS_CLIENT', 'phpredis'),
 
         'options' => extension_loaded('pdo_mysql') ? array_filter([
-            defined('Pdo\\Mysql::ATTR_SSL_CA')
-                ? Pdo\Mysql::ATTR_SSL_CA
-                : PDO::MYSQL_ATTR_SSL_CA
-            => env('MYSQL_ATTR_SSL_CA'),
+            $mysqlSslCa => env('MYSQL_ATTR_SSL_CA'),
         ]) : [],
 
         'default' => [
