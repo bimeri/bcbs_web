@@ -69,34 +69,34 @@
 
 #laravel
 
-#FROM php:8.3-apache
-#
-#RUN apt-get update && apt-get install -y \
-#    git \
-#    curl \
-#    zip \
-#    unzip \
-#    libpng-dev \
-#    libonig-dev \
-#    libxml2-dev \
-#    libzip-dev
-#
-#RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
-#
-#COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-#
-#WORKDIR /var/www
-#
-#COPY . .
-#
-#RUN composer install --no-dev --optimize-autoloader
-#
-#RUN cp .env.example .env || true
-#
-#RUN php artisan key:generate || true
-#
-#RUN chown -R www-data:www-data storage bootstrap/cache
-#
-#EXPOSE 80
-#
-#CMD php artisan serve --host=0.0.0.0 --port=80
+FROM php:8.3-apache
+
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    zip \
+    unzip \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev
+
+RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www
+
+COPY . .
+
+RUN composer install --no-dev --optimize-autoloader
+
+RUN #cp .env.example .env || true
+
+RUN php artisan key:generate || true
+
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+EXPOSE 80
+
+CMD php artisan serve --host=0.0.0.0 --port=80
