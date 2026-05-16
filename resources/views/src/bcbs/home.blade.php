@@ -14,7 +14,10 @@
                 </h4>
                 <label class="w3-small justify">{{ $director->intro }}</label>
                 <p class="justify w3-small">
-                    {!! substr($director->speech, 200) !!}
+                    {!! strlen($director->speech) > 200
+                        ? substr($director->speech, 0, 400) . '...'
+                        : $director->speech
+                    !!}
                 </p>
                 <h3><a href="{{ route('bcbs.director') }}" class="col offset-m1 m10 s12 btn w3-light-gray waves-effect w3-round-medium black-text center">{{ trans('bcbs.a_word_from_the_director') }}</a></h3>
             </div><hr class="double" style="margin: 0 !important">
@@ -64,8 +67,8 @@
                             <div class="collapsible-header waves-effect"><i class="fa fa-list-alt teal-text w3-margin-right"></i> Programs</div>
                             <div class="collapsible-body teal teal-text font lighten-5">
                                 <h6 class="w3-padding"><i class="fa fa-dot-circle w3-small teal-text"></i> Bachelor degree (4 years program) <a href="{{ route('bcbs.admission') }}" class="blue-text w3-small">click to enroll</a></h6>
-                                <h6 class="w3-padding"><i class="fa fa-dot-circle w3-small teal-text"></i> Master program (2 years program) <label>not available for now</label></h6>
-                                <h6 class="w3-padding"><i class="fa fa-dot-circle w3-small teal-text"></i> Doctor in philosophy (PHD) (2 years program) <label>not available for now</label></h6>
+{{--                                <h6 class="w3-padding"><i class="fa fa-dot-circle w3-small teal-text"></i> Master program (2 years program) <label class="red-text">not available for now</label></h6>--}}
+{{--                                <h6 class="w3-padding"><i class="fa fa-dot-circle w3-small teal-text"></i> Doctor in philosophy (PHD) (2 years program) <label class="red-text">not available for now</label></h6>--}}
                             </div>
                         </li>
                         <li>

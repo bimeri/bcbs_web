@@ -171,7 +171,7 @@
                     <div class="copyright row">
                         <div class="col s12 m6">
                             <p class="left">Copyright ©{{ now()->year }}
-                                <a href="https://sbnnetwork.net/bcbs">{{ $setting->school_name }}</a> All rights reserved.
+                                <a href="https://bcbs-online-vvkv5.ondigitalocean.app/">{{ $setting->school_name }}</a> All rights reserved.
                                 <label class="white-text">&copy;Powered by
                                     <a target="_blank" href ="#" style="color:#00ffd5"> Bimeri. Ltd</a>
                                 </label>
