@@ -14,7 +14,8 @@
         "guzzlehttp/psr7": "^2.4",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "paragonie/random_compat": "2.*"
+        "paragonie/random_compat": "2.*",
+        "ext-pdo": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
