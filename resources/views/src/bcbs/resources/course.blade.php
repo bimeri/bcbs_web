@@ -49,7 +49,9 @@ ul.tabs .indicator {
     <div class="row">
         <div class="w3-padding orange orange-text lighten-5 w3-round-large col s12 m10 offset-m1 w3-margin-bottom w3-margin-top">
             <span onclick="this.parentElement.style.display='none'" class="w3-close w3-large right w3-padding red-text hover w3-medium">x</span>
-            <p class="justify font">We are pleased to let you know that Courses are not free, and are only issued if you are a student. Please <a href="https://student.bcbs.net.co" class="blue-text pointer">Click here</a> if you are a student to register your courses. <br>
+            <p class="justify font">We are pleased to let you know that Courses are not free, and are only issued if you are a student. Please
+                <a href="#" class="blue-text pointer">Click here</a>
+                if you are a student to register your courses. <br>
                 Else please, contact us with your email and telephone and we will be grateful to reply
             </p>
         </div>
@@ -66,9 +68,9 @@ ul.tabs .indicator {
     <div class="col s12 m10 offset-m1">
       <ul class="tabs transparent w3-light-gray w3-round-medium tabs-fixed-width tab-demo z-depth-1" id="tabs-swipe-demo'">
         <li class="tab col s3 m3"><a class="active" href="#test1"><i class="fa fa-folder orange-text"></i> Level one</a></li>
-        <li class="tab col s3 m3"><a href="#test2"><i class="fa fa-folder orange-text"></i> Level two</a></a></li>
-        <li class="tab col s3 m3"><a href="#test3"><i class="fa fa-folder orange-text"></i> Level Three</a></a></li>
-        <li class="tab col s3 m3"><a href="#test4"><i class="fa fa-folder orange-text"></i> Level four</a></a></li>
+        <li class="tab col s3 m3"><a href="#test2"><i class="fa fa-folder orange-text"></i> Level two</a></li>
+        <li class="tab col s3 m3"><a href="#test3"><i class="fa fa-folder orange-text"></i> Level Three</a></li>
+        <li class="tab col s3 m3"><a href="#test4"><i class="fa fa-folder orange-text"></i> Level four</a></li>
         <div class="indicator teal" style="z-index:1"></div>
       </ul>
     </div>

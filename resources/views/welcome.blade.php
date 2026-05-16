@@ -49,7 +49,7 @@
                     </div><hr>
                     <ul class="row input nav-content">
                         <div class="row w3-margin-bottom" style="margin-top: -18px !important">
-                            <h5 class="center font bold double animate__animated animate__bounce animate__delay-2s"><a href="https://student.bcbs.net.co" class="top blue-text"><i class="fa fa-walking w3-medium grey-text"></i> Go to School &nbsp;<i class="fa fa-school w3-medium grey-text"></i></a></h5>
+                            <h5 class="center font bold double animate__animated animate__bounce animate__delay-2s"><a href="#" class="top blue-text"><i class="fa fa-walking w3-medium grey-text"></i> Go to School &nbsp;<i class="fa fa-school w3-medium grey-text"></i></a></h5>
                             <div class="col s6" style="border-right: 1px solid #ccc">
                                 <h6 class="center italic underline">{{ trans('bcbs.menu') }}</h6>
                                 <li @if(Request::is('/')) class="blue-text" @endif><a href="{{ route('landingPage') }}" onclick="load()"> {{trans('bcbs.home')}} <label><i class="right spin fa fa-home @if(Request::is('/')) blue-text @endif"></i></label></a></li><hr>
@@ -94,7 +94,7 @@
                             <li><a target="_blank" href="https://api.whatsapp.com/send?phone=237677218585&text={{ __("bcbs.text") }}" class="top">WhatsApp</a></li>
                             <li><a href="https://web.facebook.com/Buea-College-Of-Biblical-Studies-100352249130195" target="_blank" class="top">Facebook</a></li>
                             <li><a href="mailto:bimerinoel@gmail.com" class="top">E-Mail</a></li>
-                            <li class="w3-margin-left"><a href="https://student.bcbs.net.co" class="top">{{ trans('bcbs.school') }}</a></li>
+                            <li class="w3-margin-left"><a href="#" class="top">{{ trans('bcbs.school') }}</a></li>
                         </ul>
                     </div>
                     {{-- 'admission/password/forgot'--}}

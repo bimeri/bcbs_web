@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,8 +25,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
+        if (config('app.env') === 'production' || app()->environment('production')) {
+            URL::forceScheme('https');
+        }
         View::composer('*', function ($view) {
             $setting = Cache::remember('settings', 3600, function () {
                 return \App\Models\Setting::first();
