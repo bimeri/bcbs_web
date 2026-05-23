@@ -1,7 +1,7 @@
 html,
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
     background-color: #fff;
@@ -15,7 +15,6 @@ body {
     font-style: inherit;
     overflow-x: hidden !important;
     overflow-y: auto;
-    overflow: overlay;
 }
 
 .dropdown {
@@ -28,7 +27,7 @@ body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     padding: 12px 16px;
     z-index: 1;
 }
@@ -51,7 +50,7 @@ img.imgs:hover{
     right: 0;
     margin-bottom: 20px;
     margin-right: 20px;
-    box-shadow: 0px 0px 4px 4px rgba(202, 200, 200, 0.6) !important;
+    box-shadow: 0 0 4px 4px rgba(202, 200, 200, 0.6) !important;
 }
 
 p {
@@ -177,43 +176,6 @@ textarea {
     color: #2196F3 !important;
 }
 
-.footer {
-    background-color: #646b74;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: fit-content;
-    padding: 0;
-    margin: 0;
-    vertical-align: baseline;
-    outline: none;
-    font-size: 100%;
-    border: none;
-    text-decoration: none;
-}
-
-.copyright {
-    padding-top: 20px;
-    margin-left: 5%;
-}
-
-.top-footer {
-    min-height: 85vh;
-    width: 100%;
-    background-color: #f2f4f7;
-    background-image: linear-gradient(top, #ffffff 0%, 100%) !important;
-    background-image: -o-linear-gradient(top, #ffffff 0%, 100%) !important;
-    background-image: -moz-linear-gradient(top, #ffffff 0%, 100%) !important;
-    background-image: -webkit-linear-gradient(top, #ffffff 0%, 100%) !important;
-    background-image: -ms-linear-gradient(top, #ffffff 0%, 100%) !important;
-    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, )) !important;
-    background: url("./image/resources/texture.png") repeat left top;
-    background: #e8ecf1 url(image/resources/texture.png) repeat left top;
-    /* box-shadow: 0 2px 3px rgb(0 0 0 / 10%) inset; */
-    padding: 50px 0 35px !important;
-}
-
 .hover {
     cursor: pointer !important;
 }
@@ -253,38 +215,23 @@ p.credit {
 }
 
 ::-webkit-input-placeholder {
-    /* Edge */
-    /* color: #584e4e; */
-    /* text-transform: capitalize; */
-    /* letter-spacing: 2px; */
     padding-left: 5%;
 }
 
  :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    /* color: #584e4e; */
-    /* text-transform: capitalize; */
-    /* letter-spacing: 2px; */
     padding-left: 5%;
 }
 
 input.question::-webkit-input-placeholder,
 textarea.question::-webkit-input-placeholder {
-    /* Edge */
-    /* color: rgba(65, 59, 59, 0.664); */
-    /* text-transform: capitalize; */
-    /* letter-spacing: 2px; */
     padding-left: 5%;
     font-size: 13px !important;
 }
 
 input.question:-ms-input-placeholder,
 textarea.question:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #fff;
     margin: 0;
-    /* text-transform: capitalize; */
-    /* letter-spacing: 2px; */
     padding-left: 5%;
     font-size: 13px !important;
 }
@@ -335,7 +282,6 @@ textarea.question {
     margin-right: 10px;
 }
 
-/* INPUT */
 input.search{
     flex:1;
     border:none !important;
@@ -491,9 +437,6 @@ input.search{
     input.search {
         margin-top: -5px !important;
     }
-    i.isearch {
-        display: none !important;
-    }
 }
 
 div > a > li.circle-path:hover {
@@ -526,4 +469,41 @@ div > a > li.circle-path:hover {
         margin-top: -40px;
         padding: 40px 0 20px !important;
     }
+}
+
+.footer {
+    background-color: #646b74;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    vertical-align: baseline;
+    outline: none;
+    font-size: 100%;
+    border: none;
+    text-decoration: none;
+}
+
+.copyright {
+    padding-top: 20px;
+    margin-left: 5%;
+}
+
+.top-footer {
+    min-height: 85vh;
+    width: 100%;
+    background-color: #f2f4f7;
+    background-image: linear-gradient(top, #ffffff 0%, 100%) !important;
+    background-image: -o-linear-gradient(top, #ffffff 0%, 100%) !important;
+    background-image: -moz-linear-gradient(top, #ffffff 0%, 100%) !important;
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, 100%) !important;
+    background-image: -ms-linear-gradient(top, #ffffff 0%, 100%) !important;
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, )) !important;
+    background: url("./image/resources/texture.png") repeat left top;
+    background: #e8ecf1 url(image/resources/texture.png) repeat left top;
+    /* box-shadow: 0 2px 3px rgb(0 0 0 / 10%) inset; */
+    padding: 50px 0 35px !important;
 }

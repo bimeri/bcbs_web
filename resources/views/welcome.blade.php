@@ -81,9 +81,8 @@
                 </div>
                 {{-- <div class=" w3-padding"> --}}
                     <a href="#" class="right w3-padding d-down w3-xlarge w3-margin-right hide-on-med-and-up"
-                       style="width:80px; height: 60px; margin-top: 5px; position: relative; z-index:10;"
-                       onclick="showMenu()">
-                        <i class="fa fa-bars d-d w3-margin-left"></i>
+                       style="width:80px; height: 60px; margin-top: 5px; position: relative; z-index:10;" onclick="showMenu()">
+                        <i class="fa fa-bars d-d" style="margin-left: 35px;"></i>
                     </a>
                 {{-- </div> --}}
 
