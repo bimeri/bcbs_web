@@ -14,7 +14,7 @@
                     <div class="col s12 m4">
                         <div class="w3-card-4 w3-padding">
                             <img src="{{URL::asset($user->profile ?  : 'image/profiles/2.png')}}" class="w3-border"
-                                 height="250" width="300"
+                                 height="250" width="250"
                                  alt="Alps">
                             <p class="font bold w3-padding center">{{$user->name}}</p>
                         </div>

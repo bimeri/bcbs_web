@@ -119,7 +119,7 @@ CREATE TABLE `directors` (
 --
 
 INSERT INTO `directors` (`id`, `name`, `duration`, `occupation`, `intro`, `speech`, `created_at`, `updated_at`) VALUES
-(1, 'ESOH ARRON OTIA', '2015 - current', 'Civil Engineer/Pastor', 'If you have just discovered Buea College of Biblical Studies, I’d like to take this opportunity to extend a warm welcome and tell you a bit about the institution', 'Our university located in the historic town of Buea on the eastern flank of Mount Cameroon, it is a bilingual institution of its kind in predominantly English and French. It can easily be reached by an all-season, asphalted highway from the port city of Limbe, and some 33 km to the West, or from the Douala International airport that lies 70 km to the East. We offer a rich portfolio of about degree programmes at the Bachelor’s, Master’s and PhD levels, all of them designed to comply with the Sunset International institute standard. Our degree programmes continue to attract many of applications from within and abroad.<br>\r\nAdmissions will soon be open for another full four years undergraduate students. Please endeavor to have the admission form on time, fill and submit before deadline. All admission requirements will be mentioned in the Admission form which will be given to you once and its un-renewable. There are a lot of benefit if you be one of our students, benefits which will not be listed here, only when on campus. God bless you all as you put your interest in the Word of God. Amen.', '2022-07-30 11:20:16', '2022-09-20 22:22:56');
+(1, 'ESOH ARRON OTIA', '2015 - current', 'Civil Engineer/Pastor', 'If you have just discovered Buea College of Biblical Studies, I’d like to take this opportunity to extend a warm welcome and tell you a bit about the institution', 'Our university located in the historic town of Buea on the eastern flank of Mount Cameroon, it is a bilingual institution of its kind in predominantly English and French. It can easily be reached by an all-season, asphalted highway from the port city of Limbe, and some 33 km to the West, or from the Douala International airport that lies 70 km to the East. We offer a rich portfolio of our Bachelor degree programme, designed comply with the Sunset International institute standard. Our degree programme continue to attract many of applications from within and abroad.<br>\r\nAdmissions will soon be open for another full four years undergraduate students. Please endeavor to have the admission form on time, fill and submit before deadline. All admission requirements will be mentioned in the Admission form which will be given to you once and its un-renewable. There are a lot of benefit if you be one of our students, benefits which will not be listed here, only when on campus. God bless you all as you put your interest in the Word of God. Amen.', '2022-07-30 11:20:16', '2022-09-20 22:22:56');
 
 -- --------------------------------------------------------
 
@@ -330,23 +330,39 @@ INSERT INTO `testimonials` (`id`, `name`, `profile`, `message`, `conclusion`, `l
 (5, 'Bill John', 'https://bcbs-online-vvkv5.ondigitalocean.app/image/testimonial/2.png', '<p>Hi there, If you are still thinking or Dreaming of a Bible Institute, then i tell you that there is no more time to get started with BCBS. Here, I was being trained with Biblical raw fact and evidence, and can now judge the bible perfectly through the written Word. Many things i have learn that i can\'t even put them down, just to testify that BCBS is the best Bible Institute 4 years program in partnership with Sunset Internation Institute USA.</p>', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vitae eligendi</p>', NULL, NULL, '2022-09-07 14:20:43', '2022-09-17 21:44:36'),
 (6, 'Noel Magaza', 'https://bcbs.net.co/image/testimonial/IMG-20220906-WA0003.jpg', '<p>no much to say ok</p>', '<p><strong>bcbs is great well</strong></p>', NULL, NULL, '2022-09-07 17:57:11', '2022-09-08 00:02:12');
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+
+  `profile` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reason` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+
+  `expires` timestamp NULL DEFAULT NULL,
+  `activation_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_user_name_unique` (`user_name`)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 -- --------------------------------------------------------
 
 --

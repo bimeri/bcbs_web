@@ -323,19 +323,43 @@ textarea.question {
     text-transform: uppercase !important;
 }
 
-input.search {
-    border-radius: 25px !important;
-    height: 6vh !important;
-    margin-top: -39px !important;
-    font-size: 12px !important;
-    padding-left: 10px !important;
+.search-container{
+    display:flex;
+    align-items:center;
+    border:1px solid #d8d8d8;
+    border-radius:40px;
+    overflow:hidden;
+    background:#fff;
+    height:48px;
+    margin-top: -15px;
+    margin-right: 10px;
 }
 
-input.search-small {
-    background-color: rgba(235, 239, 238, 0.93) !important;
-    color: #000 !important;
-    height: 5.7vh !important;
-    padding-left: 4px !important;
+/* INPUT */
+input.search{
+    flex:1;
+    border:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+    background:transparent !important;
+    height:100% !important;
+    margin:0 !important;
+    padding-left:18px !important;
+    font-size:12px !important;
+}
+
+.search-btn{
+    width:55px;
+    height:100%;
+    border:none;
+    border-left:1px solid #d6d6d6;
+    background:transparent !important;
+    color:gray;
+    cursor:pointer;
+}
+
+.search-btn:hover{
+    background:#f5f5f5 !important;
 }
 
 @keyframes blink {

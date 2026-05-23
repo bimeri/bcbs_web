@@ -14,52 +14,80 @@
         </div>
         <div class="col s6 m3 input-field">
             <label for="user_nationality"><i class="fa fa-id-card w3-medium blue-text"></i> Nationality</label>
-            <input type="text" id="user_nationality" value="{{$userinfo ?? $userinfo->nationality }}" placeholder="Nationality" class="validate">
+            <input type="text" id="user_nationality" value="{{ isset($userinfo) && is_object($userinfo) ? $userinfo->nationality : '' }}" placeholder="Nationality" class="validate">
         </div>
     </div>
     <div class="row">
         <div class="col s6 m3 input-field">
-            <label for="user_address1"><i class="fa fa-address-card w3-medium blue-text"></i> Address 1</label>
-            <input type="text" id="user_address1" value="{{$userinfo ?? $userinfo->address1 }}" placeholder="Address 1" class="validate">
+            <label for="user_address1">
+                <i class="fa fa-address-card w3-medium blue-text"></i> Address 1
+            </label>
+            <input type="text" id="user_address1" value="{{ optional($userinfo)->address1 }}" placeholder="Address 1" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="user_address2"><i class="fa fa-address-card w3-medium blue-text"></i> Address 2</label>
-            <input type="text" id="user_address2" value="{{$userinfo ?? $userinfo->address2 }}" placeholder="Address 2" class="validate">
+            <label for="user_address2">
+                <i class="fa fa-address-card w3-medium blue-text"></i> Address 2
+            </label>
+            <input type="text" id="user_address2" value="{{ optional($userinfo)->address2 }}" placeholder="Address 2" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
             <label for="user_street"><i class="fa fa-flag w3-medium blue-text"></i> Street</label>
-            <input type="text" id="user_street" value="{{$userinfo ?? $userinfo->street }}" placeholder="Street" class="validate">
+            <input type="text" id="user_street" value="{{ optional($userinfo)->street }}" placeholder="Street" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="user_congregation"><i class="fa fa-place-of-worship w3-medium blue-text"></i> Congregation</label>
-            <input type="text" id="user_congregation" value="{{$userinfo ?? $userinfo->congregation }}" placeholder="Congregation" class="validate">
+            <label for="user_congregation">
+                <i class="fa fa-place-of-worship w3-medium blue-text"></i> Congregation
+            </label>
+            <input type="text" id="user_congregation" value="{{ optional($userinfo)->congregation }}" placeholder="Congregation" class="validate">
         </div>
     </div>
+
     <div class="row">
         <div class="col s6 m3 input-field">
-            <label for="user_fathers"><i class="fa fa-user w3-medium blue-text"></i> Father's name</label>
-            <input type="text" id="user_fathers" value="{{$userinfo ?? $userinfo->father_name }}" placeholder="Father's name" class="validate">
+            <label for="user_fathers">
+                <i class="fa fa-user w3-medium blue-text"></i> Father's name
+            </label>
+            <input type="text" id="user_fathers" value="{{ optional($userinfo)->father_name }}" placeholder="Father's name" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="user_mother"><i class="fa fa-user w3-medium blue-text"></i> Mother's name</label>
-            <input type="text" id="user_mother" value="{{$userinfo ?? $userinfo->mother_name }}" placeholder="Mother's name" class="validate">
+            <label for="user_mother">
+                <i class="fa fa-user w3-medium blue-text"></i> Mother's name
+            </label>
+            <input type="text" id="user_mother" value="{{ optional($userinfo)->mother_name }}" placeholder="Mother's name" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="zip_code"><i class="fa fa-barcode w3-medium blue-text"></i> Zip code</label>
-            <input type="text" id="zip_code" value="{{$userinfo ?? $userinfo->zip }}" placeholder="zip code" class="validate">
+            <label for="zip_code">
+                <i class="fa fa-barcode w3-medium blue-text"></i> Zip code
+            </label>
+            <input type="text" id="zip_code" value="{{ optional($userinfo)->zip }}" placeholder="zip code" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="user_date_of_birth"><i class="fa fa-calendar w3-medium blue-text"></i> Date of birth</label>
-            <input type="date" id="user_date_of_birth" value="{{$userinfo ?? $userinfo->date_of_birth }}" placeholder="date of birth" class="validate">
+            <label for="user_date_of_birth">
+                <i class="fa fa-calendar w3-medium blue-text"></i> Date of birth
+            </label>
+            <input type="date" id="user_date_of_birth" value="{{ optional($userinfo)->date_of_birth }}" class="validate">
         </div>
+
         <div class="col s6 m3 input-field">
-            <label for="user_date_baptise"><i class="fa fa-calendar w3-medium blue-text"></i> Date baptise</label>
-            <input type="date" id="user_date_baptise" value="{{$userinfo ?? $userinfo->date_baptized }}" placeholder="date of baptise" class="validate">
+            <label for="user_date_baptise">
+                <i class="fa fa-calendar w3-medium blue-text"></i> Date baptise
+            </label>
+            <input type="date" id="user_date_baptise" value="{{ optional($userinfo)->date_baptized }}" class="validate">
         </div>
+
         <div class="col s12 m6 input-field">
-            <label for="user_description"><i class="fa fa-pen blue-text"></i> Brief description about yourself</label>
-            <textarea id="user_description" placeholder="Brief description" class="validate">
-                {!! $userinfo ?? $userinfo->description !!}
+            <label for="user_description">
+                <i class="fa fa-pen blue-text"></i> Brief description about yourself
+            </label>
+
+            <textarea id="user_description" placeholder="Brief description" class="validate" style="margin-top: 10px;">
+                {{ optional($userinfo)->description }}
             </textarea>
         </div>
     </div>

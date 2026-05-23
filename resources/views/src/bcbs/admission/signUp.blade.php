@@ -36,7 +36,7 @@
                     <div class="col s12 m12 input-field">
                         <label for="pass1">{{ trans('messages.password') }}</label>
                         <input type="password" class="validate" id="pass1">
-                    </div> 
+                    </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="col s12 m12 input-field">
@@ -59,60 +59,99 @@
 
 <script>
 // $("html, body").animate({ scrollTop: $("#about").offset().top }, 1500);
-    function signUpForm() {
-    
-        if(!$("#f_name")[0].value) {
-            toastr.warning("{{ __('validation.required', ['attribute' => trans('bcbs.name')]) }}");
-            return false;
-        }
-        if(!$("#user_name")[0].value) {
-            toastr.warning("{{ __('validation.required', ['attribute' => trans('bcbs.user_name')]) }}");
-            return false;
-        }
-        if(!$("#tel")[0].value) {
-            toastr.warning("{{ __('validation.required', ['attribute' => trans('messages.contact')]) }}");
-            return false;
-        }
-        if(!$("#bcbs_email")[0].value) {
-            toastr.warning("{{ __('validation.required', ['attribute' => trans('messages.email')]) }}");
-            return false;
-        }
+function signUpForm() {
 
-        if($("#pass1")[0].value !== $("#pass2")[0].value) {
-            toastr.error("{{ __('validation.required', ['attribute' => trans('messages.passwordMissMatch')]) }}");
-            return false;
-        }
-        
-        $('#bcbs_loader').show();
-        $.ajax({
-            url : '{{ route("guest.registration") }}',
-            type : "post",
-            data : {'_token' : '{{ csrf_token() }}',
-                    name : $("#f_name")[0].value,
-                    user_name : $("#user_name")[0].value,
-                    email : $("#bcbs_email")[0].value,
-                    contact : $("#tel")[0].value,
-                    message: $("#content")[0].value,
-                    password : $("#pass1")[0].value,
-                },
-            success: function(res) {
-                $('html, body').animate({scrollTop: 0}, 800);
-                window.location = "{{route('bcbs.admission.signIn', ['val' => '"+res+"'])}}";
-                $('#notify').append('<div class="col s10 m10 offset-m1 w3-round-medium green green-text lighten-5">'+res+'</div>');
-            },
-            error: function(error) {
-                const errorMessage = JSON.parse(error.responseText);
-                const mess = errorMessage?.message ? errorMessage?.message + "<br>" : "";
-                const name = errorMessage.errors?.name ? errorMessage.errors?.name+ "<br>" : "";
-                const uname = errorMessage.errors?.user_name ? errorMessage.errors?.user_name+ "<br>" : "";
-                const email = errorMessage.errors?.email? errorMessage.errors?.email +"<br>" : "";
-                const contact = errorMessage.errors?.contact? errorMessage.errors?.contact+"<br>" : "";
-                const password = errorMessage.errors?.password? errorMessage.errors?.password + "<br>" : "";
-                const message = mess + name + uname + email + contact + password;
-            toastr.error(message);
-                $('#bcbs_loader').hide();
-            },
-        });
+    if(!$("#f_name").val()) {
+        toastr.warning("{{ __('validation.required', ['attribute' => trans('bcbs.name')]) }}");
+        return false;
     }
+
+    if(!$("#user_name").val()) {
+        toastr.warning("{{ __('validation.required', ['attribute' => trans('bcbs.user_name')]) }}");
+        return false;
+    }
+
+    if(!$("#tel").val()) {
+        toastr.warning("{{ __('validation.required', ['attribute' => trans('messages.contact')]) }}");
+        return false;
+    }
+
+    if(!$("#bcbs_email").val()) {
+        toastr.warning("{{ __('validation.required', ['attribute' => trans('messages.email')]) }}");
+        return false;
+    }
+
+    if($("#pass1").val() !== $("#pass2").val()) {
+        toastr.error("{{ trans('messages.passwordMissMatch') }}");
+        return false;
+    }
+
+    $('#bcbs_loader').show();
+
+    $.ajax({
+        url : '{{ route("guest.registration") }}',
+        type : "POST",
+
+        data : {
+            _token : '{{ csrf_token() }}',
+            name : $("#f_name").val(),
+            user_name : $("#user_name").val(),
+            email : $("#bcbs_email").val(),
+            contact : $("#tel").val(),
+            message : $("#content").val(),
+            password : $("#pass1").val(),
+        },
+
+        success: function(res) {
+
+            console.log("SUCCESS:", res);
+
+            $('#bcbs_loader').hide();
+
+            toastr.success(res.message);
+
+            $('html, body').animate({
+                scrollTop: 0
+            }, 800);
+
+            setTimeout(function () {
+                window.location.href = "{{ route('bcbs.admission.signIn') }}";
+            }, 1500);
+        },
+
+        error: function(error) {
+
+            console.log("ERROR:", error);
+
+            $('#bcbs_loader').hide();
+
+            let message = "Something went wrong";
+
+            if(error.responseJSON) {
+
+                const errors = error.responseJSON.errors;
+
+                message = '';
+
+                if(errors?.name)
+                    message += errors.name[0] + "<br>";
+
+                if(errors?.user_name)
+                    message += errors.user_name[0] + "<br>";
+
+                if(errors?.email)
+                    message += errors.email[0] + "<br>";
+
+                if(errors?.contact)
+                    message += errors.contact[0] + "<br>";
+
+                if(errors?.password)
+                    message += errors.password[0] + "<br>";
+            }
+
+            toastr.error(message);
+        }
+    });
+}
 </script>
 @endsection

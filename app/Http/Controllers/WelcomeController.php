@@ -338,7 +338,9 @@ class WelcomeController extends Controller
         // send same code to email
         $this->sendEmail($code, $req['email'], $req['name']);
 
-        return response()->json(trans('bcbs.registered_success'));
+        return response()->json([
+            'message' => trans('bcbs.registered_success')
+        ]);
     }
     public function resetPassword(Request $req) {
         $email = $req['email'];

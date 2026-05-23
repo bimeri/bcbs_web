@@ -110,11 +110,13 @@
                         <li><a href="{{route('user.logout')}}" class="red-text w3-padding w3-center">logout</a></li>
                     </ul>
                     @else
-                        <div class="col m9 push-m2 offset-m1 input-field hide-on-med-and-down">
-                            <input type="search" placeholder="{{ trans('bcbs.search_here') }}..." class="search" id="search" style="font-family:FontAwesome !important">
-                            <button class="" style="background: transparent !important; color: gray; border-left: 0.5px solid #beb4b4 !important; border:none; position: absolute; right: 5px; top: -31px; height: 25px">
-                                <i class="fa fa-search w3-small spin"></i>
-                            </button>
+                        <div class="col m9 push-m4 hide-on-med-and-down">
+                            <div class="search-container">
+                                <input type="search" placeholder="{{ trans('bcbs.search_here') }}..." class="search" id="search">
+                                <button type="button" class="search-btn">
+                                    <i class="fa fa-search w3-small"></i>
+                                </button>
+                            </div>
                         </div>
                     @endIf
                 </div>
@@ -130,11 +132,10 @@
                         <li @if(Request::is('elearning')) class="blue-text" @endif><a class="a" href="{{ route('bcbs.elearning') }}" onclick="load()"> {{ trans('bcbs.elerning')  }} <label><i class="spin fa fa-book-open w3-small @if(Request::is('elearning')) blue-text @endif"></i></label></a></li>
                         <li @if(Request::is('staffs', 'director')) class="blue-text" @endif><a class="a" href="{{ route('bcbs.staffs') }}" onclick="load()">{{ trans('bcbs.staff') }} <label><i class="spin fa fa-graduation-cap w3-small @if(Request::is('staffs', 'director')) blue-text @endif"></i></label></a></li>
                         <li @if(Request::is('satellite')) class="blue-text" @endif><a class="a" href="{{ route('bcbs.satellite') }}" onclick="load()">{{ trans('bcbs.satellite_school') }} <label><i class="spin fa fa-sun w3-small @if(Request::is('satellite')) blue-text @endif"></i></label></a></li>
-                        <li><a class="a right w3-padding w3-margin-bottom" href="{{ route('bcbs.admission') }}" style="font-size: 17px !important; margin-top: -10px !important; color: #25257e; box-shadow: 0 1px 1px rgba(37, 36, 36, 0.5); border-radius: 5px;"><b class="blink">{{ trans('bcbs.admission') }}</b></a></li>
+                        <li><a class="a right w3-padding w3-margin-bottom" href="{{ route('bcbs.admission') }}" style="font-size: 17px !important; margin-top: 20px !important; color: #25257e; box-shadow: 0 1px 1px rgba(37, 36, 36, 0.5); border-radius: 5px;"><b class="blink">{{ trans('bcbs.admission') }}</b></a></li>
                     </ul>
                 </div>
                 @endif
-
             </div>
         </header>
 

@@ -40,7 +40,7 @@ class MailController extends Controller
           $data = array('name' => $name, 'code' => $code);
           Mail::send('src.bcbs.mails.account', $data, function($message) use ($email, $code, $name) {
              $message->to($email, $name)->subject('Account Activation');
-             $message->from('account@bcbs.net.co','BCBS');
+             $message->from('bimerinoel@gmail.com','BCBS');
           });
        }
 
