@@ -21,13 +21,11 @@
             padding-left: 6px !important;
         }
         ::-webkit-input-placeholder {
-            /* Edge */
             color: #2196F3;
             padding-left: 6px !important;
         }
 
         :-ms-input-placeholder {
-            /* Internet Explorer 10-11 */
             color: #2196F3;
             padding-left: 6px !important;
         }
@@ -52,13 +50,12 @@
                         </div>
                         @include('config.error')
 
-                        <div class="w3-margin purple purple-text lighten-4 w3-margin center w3-medium w3-padding">Enter your school ID number and password</div>
-
+                        <div class="w3-margin purple purple-text lighten-4 w3-margin center w3-medium w3-padding">Enter your school ID and password</div>
                         <div class="card-content w3-padding">
                             <div class="form-field input-field">
                                 <i class="fa fa-graduation-cap prefix w3-large purple-text"></i>
                                 <input type="text" name="user_name" class="validate" id="username">
-                                <label for="username">User Name</label>
+                                <label for="username">User name</label>
                             </div>
                             <div class="form-field input-field">
                                 <i class="fa fa-unlock-alt prefix w3-large purple-text"></i>
@@ -116,8 +113,7 @@
         </div> -->
         <div class="row">
             <div class="footer_one center">
-                    <h6 class="w3-small w3-padding" style="text-align: center; color: #fff">&copy;Powered by
-                        <a  target="_blank" href ="#" style="color:#92b3bb"> Bimeri. Ltd</a>
+                    <h6 class="w3-small w3-padding" style="text-align: center; color: #fff">&copy;Powered by <a  target="_blank" href ="#" style="color:#92b3bb"> BCBS. Ltd</a>
                     </h6>
             </div>
         </div>
